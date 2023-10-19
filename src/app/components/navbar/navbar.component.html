@@ -3,8 +3,13 @@
   <ul class="nav-links">
     <li><a routerLink="/" class="main-font">Home</a></li>
     <li><a routerLink="/shopping-cart" class="main-font">Shopping Cart</a></li>
-    <li *ngIf="!user"><a routerLink="/login" class="main-font">Log In</a></li>
-    <li class="dropdown" *ngIf="user">
+
+    <ng-template #anonymousUser>
+      <li>
+        <a routerLink="/login" class="main-font">Log In</a>
+      </li>
+    </ng-template>
+    <li class="dropdown" *ngIf="auth.user$ | async as user; else anonymousUser">
       <a class="dropbtn" class="main-font">{{ user.displayName }}</a>
       <div class="dropdown-content">
         <a routerLink="/my/orders" class="main-font">My Orders</a>
