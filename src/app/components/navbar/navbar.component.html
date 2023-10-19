@@ -3,14 +3,14 @@
   <ul class="nav-links">
     <li><a routerLink="/" class="main-font">Home</a></li>
     <li><a routerLink="/shopping-cart" class="main-font">Shopping Cart</a></li>
-    <li><a routerLink="/login" class="main-font">Log In</a></li>
-    <li class="dropdown">
-      <a class="dropbtn" class="main-font">Logged In User</a>
+    <li *ngIf="!user"><a routerLink="/login" class="main-font">Log In</a></li>
+    <li class="dropdown" *ngIf="user">
+      <a class="dropbtn" class="main-font">{{ user.displayName }}</a>
       <div class="dropdown-content">
         <a routerLink="/my/orders" class="main-font">My Orders</a>
         <a routerLink="/admin/orders" class="main-font">Manage Orders</a>
         <a routerLink="/admin/products" class="main-font">Manage Products</a>
-        <a class="main-font">Log Out</a>
+        <a class="main-font" (click)="logout()">Log Out</a>
       </div>
     </li>
   </ul>
