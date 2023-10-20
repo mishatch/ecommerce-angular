@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   firebase: {
     apiKey: 'AIzaSyCNH7GKSoBeNrrn7QP9tkJCiELyMN5rFBY',
     authDomain: 'mishas-musicshop.firebaseapp.com',

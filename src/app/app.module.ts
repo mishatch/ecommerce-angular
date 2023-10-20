@@ -79,7 +79,7 @@ import { UserService } from './services/user.service';
       },
     ]),
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UserService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
