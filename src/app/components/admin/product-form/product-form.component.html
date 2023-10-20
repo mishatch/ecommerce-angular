@@ -25,6 +25,14 @@
       class="input-default"
       placeholder="$"
     />
+    <div
+      class="alert"
+      *ngIf="
+        productForm.get('price')?.touched && productForm.get('price')?.invalid
+      "
+    >
+      asdsa
+    </div>
   </div>
   <div class="form-group">
     <label for="category" class="secondary-font">Category</label>
@@ -34,6 +42,15 @@
         {{ c.name }}
       </option>
     </select>
+    <div
+      class="alert"
+      *ngIf="
+        productForm.get('category')?.touched &&
+        productForm.get('category')?.invalid
+      "
+    >
+      dsa
+    </div>
   </div>
   <div class="form-group">
     <label for="imageUrl" class="secondary-font">Image URL</label>
@@ -43,6 +60,15 @@
       type="text"
       class="input-default"
     />
+    <div
+      class="alert"
+      *ngIf="
+        productForm.get('imageUrl')?.touched &&
+        productForm.get('imageUrl')?.invalid
+      "
+    >
+      dsa
+    </div>
   </div>
   <button class="secondary-font button-default" type="submit">Save</button>
 </form>

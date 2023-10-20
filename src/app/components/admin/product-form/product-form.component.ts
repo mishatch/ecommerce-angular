@@ -22,11 +22,9 @@ export class ProductFormComponent {
     title: new FormControl('', Validators.required),
     price: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
-    imageUrl: new FormControl('', Validators.required),
+    imageUrl: new FormControl('', [Validators.required]),
   });
   save(product) {
-    console.log(product);
-
     this.productService.create(product);
   }
 }
