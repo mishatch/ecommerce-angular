@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+$input-border-color: #ccc;
+$input-focus-color: rgb(105, 175, 175);
+$button-color: rgb(105, 175, 175);
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +11,46 @@
   font-family: trajan;
   src: url(./assets/fonts/TrajanPro-Regular.ttf);
 }
+@font-face {
+  font-family: cormorant;
+  src: url(./assets/fonts/CormorantGaramond-Regular.ttf);
+}
 .main-font {
   font-family: trajan;
+}
+.secondary-font {
+  font-family: cormorant;
+  font-size: 24px;
+}
+.input-default {
+  height: 40px;
+  border: 1px solid $input-border-color;
+  border-radius: 4px;
+  padding-left: 10px;
+  transition: 0.3s;
+  &:focus {
+    outline: $input-focus-color auto 1px;
+  }
+}
+.select-default {
+  height: 40px;
+  border: 1px solid $input-border-color;
+  padding-left: 10px;
+  border-radius: 4px;
+  transition: 0.3s;
+
+  &:focus {
+    outline: $input-focus-color auto 1px;
+  }
+}
+.button-default {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border: none;
+  border-radius: 4px;
+  background-color: $button-color;
+  color: white;
+  cursor: pointer;
 }

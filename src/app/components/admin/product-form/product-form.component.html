@@ -1,0 +1,24 @@
+<form>
+  <div class="form-group">
+    <label for="title" class="secondary-font">Title</label>
+    <input id="title" type="text" class="input-default" />
+  </div>
+  <div class="form-group">
+    <label for="price" class="secondary-font">Price</label>
+    <input id="price" type="number" class="input-default" placeholder="$" />
+  </div>
+  <div class="form-group">
+    <label for="category" class="secondary-font">Category</label>
+    <select id="category" class="select-default">
+      <option value=""></option>
+      <option *ngFor="let c of categories$ | async" value="c.$key">
+        {{ c.name }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="imageUrl" class="secondary-font">Image URL</label>
+    <input id="imageUrl" type="text" class="input-default" />
+  </div>
+  <button class="secondary-font button-default">Save</button>
+</form>
