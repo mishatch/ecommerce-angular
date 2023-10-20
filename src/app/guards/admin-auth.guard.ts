@@ -16,29 +16,6 @@ export class AdminAuthGuard implements CanActivate {
   ) {}
 
   canActivate(): Observable<boolean> {
-    return this.auth.user$.pipe(
-      take(1),
-      switchMap((user) => {
-        if (user) {
-          return this.userService.get(user.uid).pipe(
-            map((userData) => {
-              if (userData && userData.isAdmin) {
-                return true;
-              } else {
-                this.router.navigate(['/']);
-                return false;
-              }
-            }),
-            catchError(() => {
-              this.router.navigate(['/']);
-              return of(false);
-            })
-          );
-        } else {
-          this.router.navigate(['/login']);
-          return of(false);
-        }
-      })
-    );
+    return this.auth.appUser$.pipe(map((appUser) => appUser.isAdmin));
   }
 }

@@ -9,12 +9,16 @@
         <a routerLink="/login" class="main-font">Log In</a>
       </li>
     </ng-template>
-    <li class="dropdown" *ngIf="auth.user$ | async as user; else anonymousUser">
-      <a class="dropbtn" class="main-font">{{ user.displayName }}</a>
+    <li class="dropdown" *ngIf="appUser; else anonymousUser">
+      <a class="dropbtn" class="main-font">{{ appUser.name }}</a>
       <div class="dropdown-content">
         <a routerLink="/my/orders" class="main-font">My Orders</a>
-        <a routerLink="/admin/orders" class="main-font">Manage Orders</a>
-        <a routerLink="/admin/products" class="main-font">Manage Products</a>
+        <ng-container *ngIf="appUser.isAdmin">
+          <a routerLink="/admin/orders" class="main-font" (click)="log()"
+            >Manage Orders</a
+          >
+          <a routerLink="/admin/products" class="main-font">Manage Products</a>
+        </ng-container>
         <a class="main-font" (click)="logout()">Log Out</a>
       </div>
     </li>
