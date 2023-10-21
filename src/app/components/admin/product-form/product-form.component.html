@@ -91,7 +91,16 @@
         </div>
       </div>
     </div>
-    <button class="secondary-font button-default" type="submit">Save</button>
+    <div class="buttons">
+      <button class="secondary-font button-default" type="submit">Save</button>
+      <button
+        type="button"
+        (click)="delete()"
+        class="secondary-font danger-button"
+      >
+        Delete
+      </button>
+    </div>
   </form>
 
   <div class="card">

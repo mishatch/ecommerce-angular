@@ -54,3 +54,11 @@ $button-color: rgb(105, 175, 175);
   color: white;
   cursor: pointer;
 }
+.danger-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 7px 30px;
+  border-radius: 4px;
+  cursor: pointer;
+}

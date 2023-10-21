@@ -20,9 +20,10 @@
         margin-bottom: 20px;
       }
     }
-    > button {
-      margin-right: auto;
-      margin-left: 20%;
+    > .buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
     }
   }
   .card {
