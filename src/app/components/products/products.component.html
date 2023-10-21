@@ -1,1 +1,30 @@
-<p>products works!</p>
+<div class="container">
+  <div class="categories">
+    <div>
+      <div>
+        <a
+          *ngFor="let c of categories$ | async"
+          class="secondary-font"
+          [routerLink]="['/']"
+          [queryParams]="{ category: c.key }"
+        >
+          {{ c.name }}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card" *ngFor="let p of products$ | async">
+      <div class="card-header">
+        <img [src]="p.imageUrl" class="card-img" />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title main-font">{{ p.title }}</h5>
+        <p class="card-text secondary-font">
+          {{ p.price | currency : "USD" : "symbol" }}
+        </p>
+        <a href="">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
