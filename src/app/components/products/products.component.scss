@@ -24,6 +24,7 @@
           border-bottom-left-radius: 4px;
         }
         a {
+          text-decoration: none;
           border: 1px solid #ccc;
           transition: 0.3s;
           padding: 20px;
@@ -85,4 +86,8 @@
       border-bottom-right-radius: 8px;
     }
   }
+}
+.highlighted {
+  background-color: #007bff;
+  color: white;
 }

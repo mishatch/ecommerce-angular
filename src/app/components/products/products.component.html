@@ -3,10 +3,18 @@
     <div>
       <div>
         <a
+          [class.highlighted]="!category"
+          routerLink="/"
+          class="secondary-font"
+        >
+          All Categories</a
+        >
+        <a
           *ngFor="let c of categories$ | async"
           class="secondary-font"
           [routerLink]="['/']"
-          [queryParams]="{ category: c.key }"
+          [queryParams]="{ category: c.name }"
+          [class.highlighted]="category === c.name"
         >
           {{ c.name }}
         </a>
@@ -14,7 +22,7 @@
     </div>
   </div>
   <div class="cards">
-    <div class="card" *ngFor="let p of products$ | async">
+    <div class="card" *ngFor="let p of filteredProducts">
       <div class="card-header">
         <img [src]="p.imageUrl" class="card-img" />
       </div>
