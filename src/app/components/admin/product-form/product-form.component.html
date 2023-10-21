@@ -4,6 +4,7 @@
       <label for="title" class="secondary-font">Title</label>
       <input
         formControlName="title"
+        [(ngModel)]="product.title"
         id="title"
         type="text"
         class="input-default"
@@ -22,6 +23,7 @@
     <div class="form-group">
       <label for="price" class="secondary-font">Price</label>
       <input
+        [(ngModel)]="product.price"
         formControlName="price"
         id="price"
         type="number"
@@ -44,7 +46,12 @@
     </div>
     <div class="form-group">
       <label for="category" class="secondary-font">Category</label>
-      <select formControlName="category" id="category" class="select-default">
+      <select
+        formControlName="category"
+        id="category"
+        class="select-default"
+        [(ngModel)]="product.category"
+      >
         <option value=""></option>
         <option *ngFor="let c of categories$ | async" [value]="c.name">
           {{ c.name }}
@@ -67,6 +74,7 @@
         id="imageUrl"
         type="text"
         class="input-default"
+        [(ngModel)]="product.imageUrl"
       />
       <div
         class="alert"
@@ -88,12 +96,12 @@
 
   <div class="card">
     <div class="card-header">
-      <img [src]="productForm.get('imageUrl')?.value" class="card-img" />
+      <img [src]="product.imageUrl" class="card-img" *ngIf="product.imageUrl" />
     </div>
     <div class="card-body">
-      <h5 class="card-title main-font">{{ productForm.get("title").value }}</h5>
+      <h5 class="card-title main-font">{{ product.title }}</h5>
       <p class="card-text secondary-font">
-        {{ productForm.get("price").value | currency : "USD" : "symbol" }}
+        {{ product.price | currency : "USD" : "symbol" }}
       </p>
     </div>
   </div>

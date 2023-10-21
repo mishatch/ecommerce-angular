@@ -4,7 +4,9 @@ import { ProductService } from '../../../services/product.service';
 import { tap } from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductFormValidators } from 'src/app/validations/product-form.validators';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs/operators';
+import { AppProduct } from '../../../models/app-product';
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -12,14 +14,27 @@ import { Router } from '@angular/router';
 })
 export class ProductFormComponent {
   categories$;
+  product: any = {
+    title: '',
+    price: '',
+    category: '',
+    imageUrl: '',
+  };
   constructor(
     private categoryService: CategoryService,
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
-    this.categories$ = categoryService
-      .getCategories()
-      .pipe(tap((d) => console.log(d)));
+    this.categories$ = categoryService.getCategories();
+
+    let id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.productService
+        .get(id)
+        .pipe(take(1))
+        .subscribe((p) => (this.product = p));
+    }
   }
   productForm = new FormGroup({
     title: new FormControl('', Validators.required),
