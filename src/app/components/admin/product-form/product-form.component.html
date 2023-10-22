@@ -102,16 +102,10 @@
       </button>
     </div>
   </form>
-
-  <div class="card">
-    <div class="card-header">
-      <img [src]="product.imageUrl" class="card-img" *ngIf="product.imageUrl" />
-    </div>
-    <div class="card-body">
-      <h5 class="card-title main-font">{{ product.title }}</h5>
-      <p class="card-text secondary-font">
-        {{ product.price | currency : "USD" : "symbol" }}
-      </p>
-    </div>
-  </div>
+  <product-card
+    *ngIf="product.title"
+    [product]="product"
+    [show-actions]="false"
+    class="card"
+  ></product-card>
 </div>

@@ -1,38 +1,8 @@
 <div class="container">
-  <div class="categories">
-    <div>
-      <div>
-        <a
-          [class.highlighted]="!category"
-          routerLink="/"
-          class="secondary-font"
-        >
-          All Categories</a
-        >
-        <a
-          *ngFor="let c of categories$ | async"
-          class="secondary-font"
-          [routerLink]="['/']"
-          [queryParams]="{ category: c.name }"
-          [class.highlighted]="category === c.name"
-        >
-          {{ c.name }}
-        </a>
-      </div>
-    </div>
-  </div>
+  <product-filter [category]="category" class="product-filter"></product-filter>
   <div class="cards">
     <div class="card" *ngFor="let p of filteredProducts">
-      <div class="card-header">
-        <img [src]="p.imageUrl" class="card-img" />
-      </div>
-      <div class="card-body">
-        <h5 class="card-title main-font">{{ p.title }}</h5>
-        <p class="card-text secondary-font">
-          {{ p.price | currency : "USD" : "symbol" }}
-        </p>
-        <a href="">Add to Cart</a>
-      </div>
+      <product-card [product]="p"></product-card>
     </div>
   </div>
 </div>

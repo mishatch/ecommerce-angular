@@ -1,0 +1,15 @@
+<div class="card-header">
+  <img
+    [src]="product.imageUrl"
+    class="card-img"
+    *ngIf="product.imageUrl"
+    alt="{{ product.title }}"
+  />
+</div>
+<div class="card-body">
+  <h5 class="card-title main-font">{{ product.title }}</h5>
+  <p class="card-text secondary-font">
+    {{ product.price | currency : "USD" : "symbol" }}
+  </p>
+  <a href="" *ngIf="showActions">Add to Cart</a>
+</div>

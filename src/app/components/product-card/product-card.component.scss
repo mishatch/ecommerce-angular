@@ -1,0 +1,21 @@
+.card-header {
+  background-color: #f8f9fa;
+  margin-bottom: 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  > img {
+    width: 100%;
+  }
+}
+
+.card-body {
+  padding: 20px;
+  > .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  > .card-text {
+    font-size: 1.5rem;
+    color: #555;
+  }
+}
