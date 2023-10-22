@@ -12,6 +12,12 @@
     {{ product.price | currency : "USD" : "symbol" }}
   </p>
   <div class="card-footer">
-    <a href="" *ngIf="showActions" class="secondary-font">Add to Cart</a>
+    <button
+      (click)="addToCart(product)"
+      *ngIf="showActions"
+      class="secondary-font"
+    >
+      Add to Cart
+    </button>
   </div>
 </div>
