@@ -44,4 +44,29 @@ export class ShoppingCartService {
           });
       });
   }
+  async removeFromCart(product: Product) {
+    let cartId = await this.getOrCreateCartId();
+    let item$ = this.getItem(cartId, product.key);
+    item$
+      .valueChanges()
+      .pipe(take(1))
+      .subscribe((item: any) => {
+        if (item) item$.update({ quantity: item.quantity - 1 });
+        else
+          item$.set({
+            product: product,
+            quantity: 1,
+          });
+      });
+  }
+  private async updateItemQuantity(product: Product, change: number) {
+    let cartId = await this.getOrCreateCartId();
+    let item$ = this.getItem(cartId, product.key);
+    item$
+      .valueChanges()
+      .pipe(take(1))
+      .subscribe((item: any) => {
+        if (item) item$.update({ quantity: item.quantity + change });
+      });
+  }
 }

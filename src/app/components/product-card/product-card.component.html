@@ -13,9 +13,17 @@
   </p>
 
   <div *ngIf="showActions" class="card-footer">
-    <button (click)="addToCart(product)" class="secondary-font">
+    <button
+      (click)="addToCart()"
+      class="secondary-font"
+      *ngIf="getQuantity() === 0; else updateQuantity"
+    >
       Add to Cart
     </button>
-    <div>{{ getQuantity() }}</div>
+    <ng-template #updateQuantity class="quantity-adjust">
+      <button class="adjust" (click)="removeFromCart()">-</button>
+      <div class="amount main-font">{{ getQuantity() }}</div>
+      <button class="adjust" (click)="addToCart()">+</button>
+    </ng-template>
   </div>
 </div>
