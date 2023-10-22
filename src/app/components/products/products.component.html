@@ -2,7 +2,7 @@
   <product-filter [category]="category" class="product-filter"></product-filter>
   <div class="cards">
     <div class="card" *ngFor="let p of filteredProducts">
-      <product-card [product]="p"></product-card>
+      <product-card [product]="p" [shopping-cart]="cart"></product-card>
     </div>
   </div>
 </div>

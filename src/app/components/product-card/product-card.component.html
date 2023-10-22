@@ -11,13 +11,11 @@
   <p class="card-text secondary-font">
     {{ product.price | currency : "USD" : "symbol" }}
   </p>
-  <div class="card-footer">
-    <button
-      (click)="addToCart(product)"
-      *ngIf="showActions"
-      class="secondary-font"
-    >
+
+  <div *ngIf="showActions" class="card-footer">
+    <button (click)="addToCart(product)" class="secondary-font">
       Add to Cart
     </button>
+    <div>{{ getQuantity() }}</div>
   </div>
 </div>
