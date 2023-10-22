@@ -29,6 +29,8 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
 import { CategoryService } from './services/category.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from './services/product.service';
+import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ProductService } from './services/product.service';
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent,
   ],
   imports: [
     FormsModule,
