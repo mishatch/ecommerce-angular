@@ -19,7 +19,19 @@
     li {
       display: inline-block;
       margin-left: 20px;
+      > span {
+        height: 18px;
+        width: 18px;
 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        top: 5px;
+        right: 82px;
+      }
       a {
         color: #fff;
         text-decoration: none;

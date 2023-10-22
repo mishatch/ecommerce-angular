@@ -2,7 +2,10 @@
   <div class="logo">Mishas Shop</div>
   <ul class="nav-links">
     <li><a routerLink="/" class="main-font">Home</a></li>
-    <li><a routerLink="/shopping-cart" class="main-font">Shopping Cart</a></li>
+    <li>
+      <a routerLink="/shopping-cart" class="main-font">Shopping Cart</a>
+      <span class="product-amount">{{ shoppingCartItemCount }}</span>
+    </li>
 
     <ng-template #anonymousUser>
       <li>
