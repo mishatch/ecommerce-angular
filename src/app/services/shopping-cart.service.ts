@@ -24,34 +24,10 @@ export class ShoppingCartService {
       );
   }
   async addToCart(product: Product) {
-    let cartId = await this.getOrCreateCartId();
-    let item$ = this.getItem(cartId, product.key);
-    item$
-      .valueChanges()
-      .pipe(take(1))
-      .subscribe((item: any) => {
-        if (item) item$.update({ quantity: item.quantity + 1 });
-        else
-          item$.set({
-            product: product,
-            quantity: 1,
-          });
-      });
+    this.updateItemQuantity(product, 1);
   }
   async removeFromCart(product: Product) {
-    let cartId = await this.getOrCreateCartId();
-    let item$ = this.getItem(cartId, product.key);
-    item$
-      .valueChanges()
-      .pipe(take(1))
-      .subscribe((item: any) => {
-        if (item) item$.update({ quantity: item.quantity - 1 });
-        else
-          item$.set({
-            product: product,
-            quantity: 1,
-          });
-      });
+    this.updateItemQuantity(product, -1);
   }
   async clearCart() {
     let cartId = await this.getOrCreateCartId();
@@ -84,7 +60,10 @@ export class ShoppingCartService {
       .valueChanges()
       .pipe(take(1))
       .subscribe((item: any) => {
-        if (item) item$.update({ quantity: item.quantity + change });
+        item$.update({
+          product: product,
+          quantity: (item?.quantity || 0) + change,
+        });
       });
   }
 }
