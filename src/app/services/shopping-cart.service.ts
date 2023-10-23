@@ -19,15 +19,15 @@ export class ShoppingCartService {
       .valueChanges()
       .pipe(
         map((x) => {
-          return new ShoppingCart(x.items);
+          return new ShoppingCart(x?.items || []);
         })
       );
   }
   async addToCart(product: Product) {
-    this.updateItemQuantity(product, 1);
+    this.updateItem(product, 1);
   }
   async removeFromCart(product: Product) {
-    this.updateItemQuantity(product, -1);
+    this.updateItem(product, -1);
   }
   async clearCart() {
     let cartId = await this.getOrCreateCartId();
@@ -53,15 +53,18 @@ export class ShoppingCartService {
     return result.key;
   }
 
-  private async updateItemQuantity(product: Product, change: number) {
+  private async updateItem(product: Product, change: number) {
+    console.log('Updating item:', product, 'Change:', change);
     let cartId = await this.getOrCreateCartId();
-    let item$ = this.getItem(cartId, product.key);
+    let item$ = this.getItem(cartId, product.$key);
     item$
       .valueChanges()
       .pipe(take(1))
       .subscribe((item: any) => {
         item$.update({
-          product: product,
+          title: product.title,
+          imageUrl: product.imageUrl,
+          price: product.price,
           quantity: (item?.quantity || 0) + change,
         });
       });
