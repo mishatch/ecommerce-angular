@@ -4,7 +4,9 @@
     <li><a routerLink="/" class="main-font">Home</a></li>
     <li>
       <a routerLink="/shopping-cart" class="main-font">Shopping Cart</a>
-      <span class="product-amount">{{ shoppingCartItemCount }}</span>
+      <span class="product-amount" *ngIf="cart$ | async as cart">{{
+        cart.totalItemsCount
+      }}</span>
     </li>
 
     <ng-template #anonymousUser>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireObject } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 import { AppUser } from 'src/app/models/app-user';
+import { ShoppingCart } from 'src/app/models/shopping-cart';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
@@ -9,7 +12,8 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  shoppingCartItemCount: number;
+  cart$: Observable<ShoppingCart>;
+
   constructor(
     private auth: AuthService,
     private shoppingCartService: ShoppingCartService
@@ -24,11 +28,7 @@ export class NavbarComponent implements OnInit {
   }
   async ngOnInit() {
     this.auth.appUser$.subscribe((appUser) => (this.appUser = appUser));
-    let cart$ = await this.shoppingCartService.getCart();
-    cart$.valueChanges().subscribe((cart) => {
-      this.shoppingCartItemCount = 0;
-      for (let productId in cart.items)
-        this.shoppingCartItemCount += cart.items[productId].quantity;
-    });
+
+    this.cart$ = await this.shoppingCartService.getCart();
   }
 }
