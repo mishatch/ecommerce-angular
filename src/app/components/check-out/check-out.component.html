@@ -1,1 +1,56 @@
-<p>check-out works!</p>
+<h2>Shipping</h2>
+<form [formGroup]="shippingForm" (ngSubmit)="placeOrder()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input formControlName="name" type="text" />
+    <div
+      class="alert"
+      *ngIf="
+        shippingForm.get('name').hasError('required') &&
+        shippingForm.get('name').touched
+      "
+    >
+      Name is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="addressLine1">Address</label>
+    <input formControlName="addressLine1" type="text" placeholder="Line 1" />
+    <div
+      class="alert"
+      *ngIf="
+        shippingForm.get('addressLine1').hasError('required') &&
+        shippingForm.get('addressLine1').touched
+      "
+    >
+      Address Line 1 is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="addressLine2">Address</label>
+    <input formControlName="addressLine2" type="text" placeholder="Line 2" />
+    <div
+      class="alert"
+      *ngIf="
+        shippingForm.get('addressLine2').hasError('required') &&
+        shippingForm.get('addressLine2').touched
+      "
+    >
+      Address Line 2 is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="city">City</label>
+    <input formControlName="city" type="text" />
+    <div
+      class="alert"
+      *ngIf="
+        shippingForm.get('city').hasError('required') &&
+        shippingForm.get('city').touched
+      "
+    >
+      City is required.
+    </div>
+  </div>
+  <button type="submit" class="button-default">Place Order</button>
+</form>
