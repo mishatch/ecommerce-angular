@@ -50,7 +50,6 @@ export class ShoppingCartService {
 
     let result = await this.create();
     localStorage.setItem('cartId', result.key);
-    console.log('result:', result);
 
     return result.key;
   }
