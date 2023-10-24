@@ -1,7 +1,3 @@
-<div class="container">
-  <button class="adjust" (click)="removeFromCart()">-</button>
-  <div class="amount main-font">
-    {{ shoppingCart.getQuantity(product) }}
-  </div>
-  <button class="adjust" (click)="addToCart()">+</button>
-</div>
+<button (click)="removeFromCart()">-</button>
+<div>{{ shoppingCart.getQuantity(product) }} in cart</div>
+<button (click)="addToCart()">+</button>

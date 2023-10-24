@@ -12,23 +12,19 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  cart$: Observable<ShoppingCart>;
+  cart$: any;
+  appUser: AppUser;
 
   constructor(
     private auth: AuthService,
     private shoppingCartService: ShoppingCartService
   ) {}
-  appUser: AppUser;
 
-  logout(): void {
-    this.auth.logout();
-  }
-  log(): void {
-    console.log(this.appUser);
-  }
   async ngOnInit() {
     this.auth.appUser$.subscribe((appUser) => (this.appUser = appUser));
-
     this.cart$ = await this.shoppingCartService.getCart();
+  }
+  logout(): void {
+    this.auth.logout();
   }
 }
