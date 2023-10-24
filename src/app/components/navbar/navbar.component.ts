@@ -13,17 +13,19 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class NavbarComponent implements OnInit {
   cart$: Observable<ShoppingCart>;
-  appUser: AppUser;
 
   constructor(
     private auth: AuthService,
     private shoppingCartService: ShoppingCartService
   ) {}
+  appUser: AppUser;
 
   logout(): void {
     this.auth.logout();
   }
-
+  log(): void {
+    console.log(this.appUser);
+  }
   async ngOnInit() {
     this.auth.appUser$.subscribe((appUser) => (this.appUser = appUser));
 

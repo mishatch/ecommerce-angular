@@ -62,12 +62,7 @@ export class ShoppingCartService {
       .valueChanges()
       .pipe(take(1))
       .subscribe((item: any) => {
-        item$.update({
-          title: product.title,
-          imageUrl: product.imageUrl,
-          price: product.price,
-          quantity: (item?.quantity || 0) + change,
-        });
+        if (item) item$.update({ quantity: item.quantity + change });
       });
   }
 }
