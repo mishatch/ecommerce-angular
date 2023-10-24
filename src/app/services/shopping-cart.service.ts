@@ -50,6 +50,7 @@ export class ShoppingCartService {
 
     let result = await this.create();
     localStorage.setItem('cartId', result.key);
+    console.log('result:', result);
 
     return result.key;
   }
@@ -61,7 +62,12 @@ export class ShoppingCartService {
       .valueChanges()
       .pipe(take(1))
       .subscribe((item: any) => {
-        if (item) item$.update({ quantity: item.quantity + change });
+        item$.update({
+          title: product.title,
+          imageUrl: product.imageUrl,
+          price: product.price,
+          quantity: (item?.quantity || 0) + change,
+        });
       });
   }
 }
