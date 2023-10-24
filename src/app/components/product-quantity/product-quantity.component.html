@@ -1,3 +1,5 @@
-<button (click)="removeFromCart()">-</button>
-<div>{{ shoppingCart.getQuantity(product) }} in cart</div>
-<button (click)="addToCart()">+</button>
+<div class="container">
+  <button (click)="removeFromCart()" class="adjust">-</button>
+  <div>{{ shoppingCart.getQuantity(product) }} in cart</div>
+  <button (click)="addToCart()" class="adjust">+</button>
+</div>
