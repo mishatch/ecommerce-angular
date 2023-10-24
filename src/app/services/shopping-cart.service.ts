@@ -50,13 +50,14 @@ export class ShoppingCartService {
 
     let result = await this.create();
     localStorage.setItem('cartId', result.key);
+    console.log('result:', result);
+
     return result.key;
   }
 
   private async updateItem(product: Product, change: number) {
-    console.log('Updating item:', product, 'Change:', change);
     let cartId = await this.getOrCreateCartId();
-    let item$ = this.getItem(cartId, product.$key);
+    let item$ = this.getItem(cartId, product.key);
     item$
       .valueChanges()
       .pipe(take(1))
