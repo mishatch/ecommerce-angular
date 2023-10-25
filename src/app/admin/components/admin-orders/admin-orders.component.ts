@@ -11,7 +11,7 @@ export class AdminOrdersComponent implements OnInit {
 
   constructor(private orderService: OrderService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.orders$ = this.orderService.getOrders();
   }
 }

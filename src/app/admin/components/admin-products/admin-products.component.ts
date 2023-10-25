@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { ProductService } from '../../../shared/services/product.service';
 import { Component, OnDestroy } from '@angular/core';
 
@@ -9,7 +10,7 @@ import { Component, OnDestroy } from '@angular/core';
 export class AdminProductsComponent implements OnDestroy {
   products: any[];
   filteredProducts: any[];
-  subscription: any;
+  subscription: Subscription;
   constructor(private ProductService: ProductService) {
     this.subscription = this.ProductService.getAll().subscribe((products) => {
       this.filteredProducts = this.products = products;

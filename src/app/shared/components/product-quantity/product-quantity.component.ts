@@ -13,10 +13,10 @@ export class ProductQuantityComponent {
 
   @Input('shopping-cart') shoppingCart: ShoppingCart;
   constructor(private cartService: ShoppingCartService) {}
-  addToCart() {
+  addToCart(): void {
     this.cartService.addToCart(this.product);
   }
-  removeFromCart() {
+  removeFromCart(): void {
     this.cartService.removeFromCart(this.product);
   }
 }

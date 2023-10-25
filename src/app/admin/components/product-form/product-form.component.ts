@@ -20,7 +20,7 @@ export class ProductFormComponent {
     category: '',
     imageUrl: '',
   };
-  id;
+  id: string;
   constructor(
     private categoryService: CategoryService,
     private productService: ProductService,
@@ -49,12 +49,12 @@ export class ProductFormComponent {
       ProductFormValidators.urlValidator,
     ]),
   });
-  save(product) {
+  save(product): void {
     if (this.id) this.productService.update(this.id, product);
     else this.productService.create(product);
     this.router.navigate(['/admin/products']);
   }
-  delete() {
+  delete(): void {
     if (!confirm('Are you sure you want to delete this product?')) return;
     this.productService.delete(this.id);
     this.router.navigate(['/admin/products']);
