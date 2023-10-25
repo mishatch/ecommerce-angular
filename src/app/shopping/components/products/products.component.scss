@@ -1,10 +1,11 @@
+@import "../../../shared/palette.scss";
 .container {
   width: 100%;
   display: flex;
   padding-top: 80px;
   > .product-filter {
     width: 30%;
-    background-color: #f8f8f8;
+    background-color: $nav-links;
 
     border-radius: 10px;
     display: flex;
@@ -19,14 +20,14 @@
     > .card {
       min-width: 30%;
       max-width: 40%;
-      // max-height: 430px;
+
       overflow-x: hidden;
       min-height: 20%;
-      border: 1px solid #ccc;
+      border: 1px solid $input-border-color;
       border-radius: 8px;
 
-      background-color: #fff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: $nav-links;
+      box-shadow: 0 4px 6px $card-box-shadow;
     }
   }
 }

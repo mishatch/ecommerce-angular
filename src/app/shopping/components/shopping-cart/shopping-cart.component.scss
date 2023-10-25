@@ -1,3 +1,4 @@
+@import "../../../shared/palette.scss";
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -21,16 +22,16 @@
     td {
       text-align: left;
       padding: 10px;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid $dropdown-bg;
     }
 
     thead {
-      background-color: #f0f0f0;
+      background-color: $tr-odd-color;
     }
 
     tbody {
       tr:nth-child(even) {
-        background-color: #f9f9f9;
+        background-color: $tr-even-color;
       }
     }
 
@@ -39,10 +40,14 @@
         font-weight: bold;
       }
     }
+    margin-bottom: 30px;
   }
-
-  .currency {
-    font-weight: bold;
-    color: green;
+  .check-out {
+    background-color: $button-color;
+    color: $nav-links;
+    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 4px;
+    margin-right: 40px;
   }
 }

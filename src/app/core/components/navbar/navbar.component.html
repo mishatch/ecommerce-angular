@@ -3,9 +3,11 @@
   <ul class="nav-links">
     <li><a routerLink="/" class="main-font">Home</a></li>
     <li>
-      <a routerLink="/shopping-cart" class="main-font"
+      <a routerLink="/shopping-cart" class="main-font shopping-cart"
         >Shopping Cart
-        <span *ngIf="cart$ | async as cart">{{ cart.totalItemsCount }}</span>
+        <span *ngIf="cart$ | async as cart" class="product-amount main-font">{{
+          cart.totalItemsCount
+        }}</span>
       </a>
     </li>
 

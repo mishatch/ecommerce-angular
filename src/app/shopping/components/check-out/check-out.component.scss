@@ -1,0 +1,52 @@
+@import "../../../shared/palette.scss";
+h2 {
+  margin-left: 20%;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+.form-group {
+  margin-bottom: 20px;
+  width: 60%;
+  margin: 0 auto;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid $input-border-color;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+
+  .alert {
+    color: $alert;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.button-default {
+  margin-top: 30px;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: $button-color;
+  color: #fff;
+  margin-left: 20%;
+}
+.disabled {
+  background-color: $input-border-color;
+  cursor: not-allowed;
+}

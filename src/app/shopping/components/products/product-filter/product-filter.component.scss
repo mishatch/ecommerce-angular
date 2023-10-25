@@ -1,3 +1,4 @@
+@import "../../../../shared/palette.scss";
 .categories {
   width: 100%;
   display: flex;
@@ -30,6 +31,6 @@
   }
 }
 .highlighted {
-  background-color: #007bff;
-  color: white !important;
+  background-color: $button-color;
+  color: $nav-links !important;
 }

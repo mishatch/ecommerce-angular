@@ -1,3 +1,5 @@
+@import "../../../shared/palette.scss";
+
 .container {
   width: 100%;
   height: 100vh;
@@ -31,15 +33,15 @@
     max-width: 50%;
     overflow-x: hidden;
     min-height: 20%;
-    border: 1px solid #ccc;
+    border: 1px solid $input-border-color;
     border-radius: 8px;
     margin: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: $nav-links;
+    box-shadow: 0 4px 6px $card-box-shadow;
   }
 
   .card-header {
-    background-color: #f8f9fa;
+    background-color: $nav-links;
     margin-bottom: 20px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -63,9 +65,9 @@
   }
 
   .card-footer {
-    background-color: #f8f9fa;
+    background-color: $nav-links;
     padding: 10px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $input-border-color;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
   }

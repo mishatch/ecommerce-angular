@@ -1,0 +1,31 @@
+@import "../../../shared/palette.scss";
+
+.container {
+  padding: 80px 40px;
+  h1 {
+    font-size: 24px;
+    color: $txt-color;
+    margin-bottom: 20px;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 8px 12px;
+      border: 1px solid $input-border-color;
+      text-align: left;
+    }
+
+    th {
+      background-color: $th-color;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: $tr-even-color;
+    }
+  }
+}

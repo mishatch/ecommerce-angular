@@ -1,38 +1,53 @@
 <div class="container">
-  <h1>Shopping Cart</h1>
+  <h1 class="main-font">Shopping Cart</h1>
   <ng-container *ngIf="cart$ | async as cart">
-    <p>you have {{ cart.totalItemsCount }} items in your shopping cart</p>
+    <p class="secondary-font">
+      you have {{ cart.totalItemsCount }} items in your shopping cart
+    </p>
     <table class="table">
       <thead>
         <tr>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Price</th>
+          <th class="main-font">Product</th>
+          <th class="main-font">Quantity</th>
+          <th class="main-font">Price</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of cart.items">
-          <td>{{ item.title }}</td>
+          <td class="secondary-font">{{ item.title }}</td>
           <td>
             <product-quantity
               [product]="item"
               [shopping-cart]="cart"
             ></product-quantity>
           </td>
-          <td>{{ item.totalPrice | currency : "USD" : true }}</td>
+          <td class="secondary-font">
+            {{ item.totalPrice | currency : "USD" : true }}
+          </td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <th></th>
           <th></th>
-          <th>{{ cart.totalPrice | currency : "USD" : true }}</th>
+          <th class="secondary-font">
+            {{ cart.totalPrice | currency : "USD" : true }}
+          </th>
         </tr>
       </tfoot>
     </table>
-    <a routerLink="/check-out">Check Out</a>
-    <button (click)="clearCart()" class="danger-button">
+    <a
+      routerLink="/check-out"
+      class="check-out main-font"
+      *ngIf="cart.totalItemsCount"
+      >Check Out</a
+    >
+    <button
+      (click)="clearCart()"
+      class="danger-button main-font"
+      *ngIf="cart.totalItemsCount"
+    >
       Clear Shopping Cart
     </button>
   </ng-container>

@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-$input-border-color: #ccc;
-$input-focus-color: rgb(105, 175, 175);
-$button-color: rgb(105, 175, 175);
+@import "./app/shared/palette.scss";
 * {
   margin: 0;
   padding: 0;
