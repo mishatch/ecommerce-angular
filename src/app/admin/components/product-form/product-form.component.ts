@@ -1,12 +1,12 @@
 import { CategoryService } from '../../../shared/services/category.service';
 import { Component } from '@angular/core';
 import { ProductService } from '../../../shared/services/product.service';
-import { tap } from 'rxjs/operators';
+
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ProductFormValidators } from 'src/app/validations/product-form.validators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { AppProduct } from '../../../shared/models/app-product';
+
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
