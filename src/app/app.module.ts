@@ -8,8 +8,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 
-import { AuthGuard } from './guards/auth.guard';
-import { AdminAuthGuard } from './guards/admin-auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { AdminAuthGuard } from './admin/guards/admin-auth.guard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,20 +20,22 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { CheckOutComponent } from './components/check-out/check-out.component';
 import { OrderSuccessComponent } from './components/order-success/order-success.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
-import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './admin/components/admin-products/admin-products.component';
+import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
 import { LoginComponent } from './components/login/login.component';
-import { AuthService } from './services/auth.service';
-import { UserService } from './services/user.service';
-import { ProductFormComponent } from './components/admin/product-form/product-form.component';
-import { CategoryService } from './services/category.service';
+import { AuthService } from './shared/services/auth.service';
+import { UserService } from './shared/services/user.service';
+import { ProductFormComponent } from './admin/components/product-form/product-form.component';
+import { CategoryService } from './shared/services/category.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductService } from './services/product.service';
+import { ProductService } from './shared/services/product.service';
 import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-import { ShoppingCartService } from './services/shopping-cart.service';
-import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
-import { OrderService } from './services/order.service';
+import { ProductCardComponent } from './shared/components/product-card/product-card.component';
+import { ShoppingCartService } from './shared/services/shopping-cart.service';
+import { ProductQuantityComponent } from './shared/components/product-quantity/product-quantity.component';
+import { OrderService } from './shared/services/order.service';
+import { SharedModule } from './shared/shared.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -45,15 +47,14 @@ import { OrderService } from './services/order.service';
     CheckOutComponent,
     OrderSuccessComponent,
     MyOrdersComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
+
     LoginComponent,
-    ProductFormComponent,
+
     ProductFilterComponent,
-    ProductCardComponent,
-    ProductQuantityComponent,
   ],
   imports: [
+    AdminModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
@@ -105,15 +106,7 @@ import { OrderService } from './services/order.service';
       },
     ]),
   ],
-  providers: [
-    AuthService,
-    UserService,
-    AuthGuard,
-    CategoryService,
-    ProductService,
-    ShoppingCartService,
-    OrderService,
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
-import { Order } from '../../../models/order';
-import { OrderService } from '../../../services/order.service';
+import { Order } from '../../../shared/models/order';
+import { OrderService } from '../../../shared/services/order.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,9 +14,5 @@ export class AdminOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.orders$ = this.orderService.getOrders();
-  }
-
-  log(x) {
-    console.log(x);
   }
 }

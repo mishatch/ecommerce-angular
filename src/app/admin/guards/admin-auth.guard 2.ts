@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../shared/services/user.service';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { UserData } from '../models/user-data.interface';
+import { UserData } from '../shared/models/user-data.interface';
 
 @Injectable({
   providedIn: 'root',

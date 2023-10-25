@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireObject } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
-import { AppUser } from 'src/app/models/app-user';
-import { ShoppingCart } from 'src/app/models/shopping-cart';
-import { AuthService } from 'src/app/services/auth.service';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { AppUser } from 'src/app/shared/models/app-user';
+import { ShoppingCart } from 'src/app/shared/models/shopping-cart';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 
 @Component({
   selector: 'navbar',

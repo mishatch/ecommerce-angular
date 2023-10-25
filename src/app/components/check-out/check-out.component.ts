@@ -2,11 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Order } from 'src/app/models/order';
-import { ShoppingCart } from 'src/app/models/shopping-cart';
-import { AuthService } from 'src/app/services/auth.service';
-import { OrderService } from 'src/app/services/order.service';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { Order } from 'src/app/shared/models/order';
+import { ShoppingCart } from 'src/app/shared/models/shopping-cart';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { OrderService } from 'src/app/shared/services/order.service';
+import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 
 @Component({
   selector: 'app-check-out',
