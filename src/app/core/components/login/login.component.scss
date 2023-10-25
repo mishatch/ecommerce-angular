@@ -1,0 +1,13 @@
+@import "../../../shared/palette.scss";
+button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 4px;
+  background-color: $button-color;
+  color: $nav-links;
+  padding: 7px 10px;
+  cursor: pointer;
+}
