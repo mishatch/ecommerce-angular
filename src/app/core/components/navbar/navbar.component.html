@@ -21,9 +21,7 @@
       <div class="dropdown-content">
         <a routerLink="/my/orders" class="main-font">My Orders</a>
         <ng-container *ngIf="appUser.isAdmin">
-          <a routerLink="/admin/orders" class="main-font" (click)="log()"
-            >Manage Orders</a
-          >
+          <a routerLink="/admin/orders" class="main-font">Manage Orders</a>
           <a routerLink="/admin/products" class="main-font">Manage Products</a>
         </ng-container>
         <a class="main-font" (click)="logout()">Log Out</a>

@@ -13,6 +13,11 @@
     justify-content: center;
     width: 50%;
     height: 100vh;
+    .alert {
+      color: $alert;
+      font-size: 18px;
+      font-weight: bold;
+    }
     > div {
       width: 60%;
       display: flex;
@@ -26,6 +31,7 @@
       display: flex;
       flex-direction: row;
       gap: 20px;
+      margin-top: 30px;
     }
   }
   .card {
@@ -71,4 +77,8 @@
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
   }
+}
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
 }
