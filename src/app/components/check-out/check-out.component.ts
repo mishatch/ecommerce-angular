@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Order } from 'src/app/models/order';
 import { ShoppingCart } from 'src/app/models/shopping-cart';
 import { AuthService } from 'src/app/services/auth.service';
 import { OrderService } from 'src/app/services/order.service';
@@ -22,7 +24,8 @@ export class CheckOutComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private shoppingCartService: ShoppingCartService,
     private orderService: OrderService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   async ngOnInit() {
@@ -37,7 +40,7 @@ export class CheckOutComponent implements OnInit, OnDestroy {
     this.cartSubscription = cart$.subscribe((cart) => {
       this.cart = cart;
     });
-    this.authService.user$.subscribe((user) => {
+    this.userSubscription = this.authService.user$.subscribe((user) => {
       this.userId = user.uid;
     });
   }
@@ -47,26 +50,11 @@ export class CheckOutComponent implements OnInit, OnDestroy {
     this.userSubscription.unsubscribe();
   }
 
-  placeOrder() {
+  async placeOrder() {
+    let order = new Order(this.userId, this.shippingForm.value, this.cart);
     if (this.shippingForm.valid) {
-      let order = {
-        userId: this.userId,
-        datePlaced: new Date().getTime(),
-        shipping: this.shippingForm.value,
-        items: this.cart.items.map((i) => {
-          return {
-            product: {
-              title: i.title,
-              imageUrl: i.imageUrl,
-              price: i.price,
-            },
-            quantity: i.quantity,
-            totalPrice: i.totalPrice,
-          };
-        }),
-      };
-
-      this.orderService.storeOrder(order);
+      let result = await this.orderService.placeOrder(order);
+      this.router.navigate(['/order-success', result.key]);
     }
   }
 }
