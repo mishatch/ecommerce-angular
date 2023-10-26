@@ -9,7 +9,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let order of orders$ | async">
-        <td class="secondary-font">{{ order.shipping.name }}df</td>
+        <td class="secondary-font">{{ order.shipping.name }}</td>
         <td class="secondary-font">{{ order.datePlaced | date }}</td>
       </tr>
     </tbody>
